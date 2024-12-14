@@ -18,11 +18,7 @@ config() {
 	cp -r ./* ~/.config/qtile/
 	sleep 1
 	clear
-	echo -e "\033[94mDone copying, going to install fonts.\033[0m"
-	mkdir ~/.fonts
-	cp ./fonts/* ~/.fonts
-	sleep 1
-	clear
+	echo -e "\033[94mDone copying.\033[0m"
 	echo -e "\033[96m"
 	read -p "Do you want set qtile as the default desktop in xinitrc (yes/no): " yn
 	case $yn in
