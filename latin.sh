@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$ROFI_RETV" = "1" ] 
 then 
