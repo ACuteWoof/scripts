@@ -1,0 +1,12 @@
+[Unit]
+Description=Gitbrowse
+
+[Service]
+Restart=always
+RestartSec=15
+User=acutewoof
+WorkingDirectory=/home/acutewoof/program/gitbrowse
+ExecStart=/home/acutewoof/program/gitbrowse/gitbrowse
+
+[Install]
+WantedBy=network-online.target

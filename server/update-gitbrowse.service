@@ -1,0 +1,9 @@
+[Unit]
+Description=Gitbrowse Updater
+[Service]
+User=root
+Type=simple
+ExecStart=/home/acutewoof/entr-runner.sh
+Restart=on-failure
+[Install]
+WantedBy=network-online.target
