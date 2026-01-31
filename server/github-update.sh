@@ -1,6 +1,8 @@
 #!/bin/env bash
 
-for dir in /home/acutewoof/gitbrowse;
+cd /home/acutewoof/gitbrowse;
+
+for dir in /home/acutewoof/gitbrowse/*;
 do 
-	[-d "$dir"] && cd "$dir" && git push github master
+	[ -d "$dir" ] && cd "$dir" && su acutewoof -c "git push github master"
 done;
