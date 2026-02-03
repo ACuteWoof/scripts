@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 if [ -z "$IMAPURL" ]; then
 	echo "IMAPURL not set"
 	echo "Trying to set with aerc config"
@@ -12,6 +11,8 @@ if [ -z "$IMAPURL" ]; then
 fi
 
 cat ~/.local/share/latestmail || echo "Date: Thu, 01 Jan 1970 00:00:00 +0000" > ~/.local/share/latestmail
+
+sleep 60
 
 while true; do
 	lastdate=$(grep '^Date:' ~/.local/share/latestmail | cut -d' ' -f2-)
