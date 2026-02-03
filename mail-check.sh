@@ -8,8 +8,7 @@ fi
 cat ~/.local/share/latestmail || echo "Date: Thu, 01 Jan 1970 00:00:00 +0000" > ~/.local/share/latestmail
 
 while true; do
-	lastmail=$(cat ~/.local/share/latestmail)
-	lastdate=$(echo "$lastmail" | grep '^Date:' | cut -d' ' -f2-)
+	lastdate=$(grep '^Date:' ~/.local/share/latestmail | cut -d' ' -f2-)
 	curl --silent "$IMAPURL/INBOX;UID=*;SECTION=HEADER.FIELDS%20(FROM%20SUBJECT%20DATE)" > ~/.local/share/latestmail
 	
 	input=$(cat ~/.local/share/latestmail)
