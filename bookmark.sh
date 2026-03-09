@@ -7,4 +7,4 @@ then
 	exit 0
 fi
 
-cat $HOME/Basement/bookmarks.txt
+cat $HOME/basement/bookmarks.txt

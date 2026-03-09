@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "" >> ~/Basement/bookmarks.txt
-xsel -o -b >> ~/Basement/bookmarks.txt
+echo "" >> ~/basement/bookmarks.txt
+xsel -o -b >> ~/basement/bookmarks.txt
