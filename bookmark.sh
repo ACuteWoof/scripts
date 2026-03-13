@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if [ "$ROFI_RETV" = "1" ] || [ "$ROFI_RETV" = "2" ]
-then
-	echo "$@" | xsel -i -b
-	notify-send "Copied $@ to clipboard."
-	exit 0
-fi
+bookmarks_file="$HOME/basement/bookmarks.txt"
 
-cat $HOME/basement/bookmarks.txt
+selected=$(cat "$bookmarks_file" | dmenu -l 10 -p "Select bookmark:")
+
+if [ -n "$selected" ]; then
+    echo "$selected" | xsel -i -b
+    notify-send "Copied to clipboard" "$selected"
+fi
