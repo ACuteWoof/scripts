@@ -3,7 +3,13 @@
 notify-send "Loading zathura..."
 URL="$(echo "$(xsel -o -b)")"
 FILE="${URL##*/}"
-ROOT="$HOME/basement/PDF/"
+ROOT="$HOME/basement/web/"
 mkdir -p "$ROOT"
-wget "$URL" -O "$ROOT$FILE" && zathura "$ROOT$FILE"
+wget "$URL" -O "$ROOT$FILE" 
+TYPE="$(file "$ROOT$FILE")"
+if [ "$TYPE" = "application/pdf" ] then
+	zathura "$ROOT$FILE"
+else 
+	pandoc "$ROOT$FILE" --embed-resuorces -s -o pdf | zathura -
+fi
 notify-send "Zathura closed."
