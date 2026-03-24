@@ -7,9 +7,11 @@ ROOT="$HOME/basement/web/"
 mkdir -p "$ROOT"
 wget "$URL" -O "$ROOT$FILE" 
 TYPE="$(file "$ROOT$FILE")"
-if [ "$TYPE" = "application/pdf" ] then
+echo $TYPE
+if [ "$TYPE" = "application/pdf" ] 
+then
 	zathura "$ROOT$FILE"
 else 
-	pandoc "$ROOT$FILE" --embed-resuorces -s -o pdf | zathura -
+	pandoc "$ROOT$FILE" --embed-resources -s -t pdf | zathura -
 fi
 notify-send "Zathura closed."
