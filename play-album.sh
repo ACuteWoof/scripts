@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mpc clear && mpc ls | dmenu -i -p 'Play album:' -l 10 | xargs -I @ mpc add @ && mpc play
+mpc ls | dmenu -i -p 'Play album:' -l 10 | xargs -I @ sh -c 'mpc clear && mpc add "@" && mpc play'
