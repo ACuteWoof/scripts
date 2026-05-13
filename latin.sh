@@ -2,7 +2,7 @@
 
 if [ "$ROFI_RETV" = "1" ] 
 then 
-	echo "${@#[$'\r\t\n ']}" | xsel -i -b
+	echo "${@#[$'\r\t\n ']}" | wl-copy
 	notify-send "Copied ${@#[$'\r\t\n ']} to clipboard."
 	exit 0
 fi
