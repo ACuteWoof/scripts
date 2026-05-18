@@ -13,7 +13,7 @@ fi
 cat ~/.local/share/latestmail || echo "Date: Thu, 01 Jan 1970 00:00:00 +0000" > ~/.local/share/latestmail
 
 sleep 60
-
+	
 while true; do
 	lastdate=$(grep '^Date:' ~/.local/share/latestmail | cut -d' ' -f2-)
 	curl --silent "$IMAPURL/INBOX;UID=*;SECTION=HEADER.FIELDS%20(FROM%20SUBJECT%20DATE)" > ~/.local/share/latestmail
@@ -24,11 +24,16 @@ while true; do
 	DATE=$(echo "$input" | grep '^Date:' | cut -d' ' -f2-)
 	SUBJECT=$(echo "$input" | grep '^Subject:' | cut -d' ' -f2-)
 
+	echo $lastdate
+	echo $DATE
 	lasttimestamp=$(date -d "$lastdate" +%s)
+	echo $lasttimestamp
 	currtimestamp=$(date -d "$DATE" +%s)
+	echo $currtimestamp
 
 	difference=$((currtimestamp - lasttimestamp))
 
+	echo $difference
 	if [ $difference -gt 0 ]; then
 		notify-send -a "Mail Checker" -w  "New Mail" "From: $FROM\nSubject: $SUBJECT"
 	fi
