@@ -1,4 +1,4 @@
 #!/bin/sh
 notify-send "Loading MPV"
-mpv "$(echo $(xsel -o -b))"
+mpv "$(echo $(wl-paste))"
 notify-send "MPV closed"
