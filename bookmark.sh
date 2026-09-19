@@ -2,7 +2,7 @@
 
 bookmarks_file="$HOME/basement/bookmarks.txt"
 
-selected=$(cat "$bookmarks_file" | bemenu --fb "#282828" --ff "#ebdbb2" --nb "#282828" --nf "#ebdbb2" --tb "#282828" --hb "#282828" --tf "#fb4934" --hf "#fabd2f" --nf "#ebdbb2" --af "#ebdbb2" --ab "#282828" -l 10 -p "Select bookmark:")
+selected=$(cat "$bookmarks_file" | bemenu --fb "#0b0e14" --ff "#e6e1cf" --nb "#0b0e14" --nf "#e6e1cf" --tb "#0b0e14" --hb "#202229" --tf "#f07178" --hf "#ffb454" --af "#e6e1cf" --ab "#0b0e14" -l 10 -p "Select bookmark:")
 
 if [ -n "$selected" ]; then
     echo "$selected" | wl-copy
